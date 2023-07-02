@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  teste-postgres-compose:
+    image: postgis/postgis
+    environment:
+      POSTGRES_PASSWORD: "pass"
+    ports:
+      - "15432:5432"
+    volumes:
+      - /home/elis/sabrina/postgres_data:/var/lib/postgresql/data 
+    networks:
+      - postgres-compose-network
+      
+  teste-pgadmin-compose:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "sabrina.marques@unesp.br"
+      PGADMIN_DEFAULT_PASSWORD: "pass"
+    ports:
+      - "16543:80"
+    depends_on:
+      - teste-postgres-compose
+    networks:
+      - postgres-compose-network
+
+networks: 
+  postgres-compose-network:
+    driver: bridge

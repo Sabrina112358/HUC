@@ -1,0 +1,14 @@
+env/
+*.CPG
+*.dbf
+*.prj
+*.snb
+*.sbx
+*.shp
+*.shp.xml
+*.shx
+*.sbn
+*.tif
+*.tiff
+teste/
+postgres_data/
